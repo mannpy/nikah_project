@@ -1,0 +1,105 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+    .main_menu {
+        position: relative;
+    }
+
+    .main_menu ul {
+        display: none;
+        position: absolute;
+        background-color: #0097A7;
+        width: 100%;
+        margin: 12px auto;
+    }
+
+    .main_menu ul li {
+        display: block;
+    }
+
+    .sell_right .order_button {
+       margin: 15px auto;
+       float: none;
+       max-width: 250px;
+       font-size: 14px;
+   }
+
+   .sell_descr {
+       text-align: center;
+       font-size: 18px;
+   }
+
+   .category {
+       text-align: center;
+   }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .adm_menu ul {
+        display: none;
+        position: absolute;
+        background-color: #546E7A;
+        width: 100%;
+        left: 0;
+        margin: 23px auto;
+        padding: 10px;
+        z-index: 10;
+    }
+
+    .slider_container {
+        margin: 0 -15px;
+    }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .adm_menu ul {
+        display: inline-block !important;
+    }
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .main_menu ul {
+        display: inline-block !important;
+    }
+
+}
+
+ /* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
