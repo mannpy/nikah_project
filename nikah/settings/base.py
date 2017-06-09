@@ -14,11 +14,9 @@ import os
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import ugettext_lazy as _
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+def path_dirname(name):
+    return os.path.dirname(name)
 
 
 def rel_project(*x):
@@ -31,6 +29,13 @@ def get_env_variable(var_name):
     except KeyError:
         error_msg = "Set the %s environment variable" % var_name
         raise ImproperlyConfigured(error_msg)
+
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = path_dirname(path_dirname(
+    path_dirname(os.path.abspath(__file__))))
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
