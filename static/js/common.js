@@ -7,6 +7,11 @@ $(document).ready(function() {
     $(".main_menu_button").click(function() {
         $(".main_menu ul").slideToggle();
     });
+
+    $("#login_a").click(function(){
+        $(".navbar-form").toggle(100);
+    });
+
     //Таймер обратного отсчета
     //Документация: http://keith-wood.name/countdown.html
     //<div class="countdown" date-time="2015-01-07"></div>
@@ -20,7 +25,10 @@ $(document).ready(function() {
     //Документация: http://fancybox.net/howto
     //<a class="fancybox"><img src="image.jpg" /></a>
     //<a class="fancybox" data-fancybox-group="group"><img src="image.jpg" /></a>
-    $(".fancybox").fancybox();
+    $(".fancybox").fancybox({
+        "padding": 0,
+        "overlayOpacity": 0.1,
+        });
 
     //Навигация по Landing Page
     //$(".top_mnu") - это верхняя панель со ссылками.
@@ -53,7 +61,7 @@ $(document).ready(function() {
     owl.owlCarousel({
         items:3,
         loop:true,
-        autoHeight:true,
+        //autoHeight:true,
     });
     $(".next_button").click(function() {
         owl.trigger("owl.next");
@@ -75,11 +83,11 @@ $(document).ready(function() {
 
     //Аякс отправка форм
     //Документация: http://api.jquery.com/jquery.ajax/
-    $("form").submit(function() {
+    $("#callback").submit(function() {
         $.ajax({
-            type: "GET",
-            url: "mail.php",
-            data: $("form").serialize()
+            type: "POST",
+            url: "/en/callback/",
+            data: $("#callback").serialize()
         }).done(function() {
             alert("Спасибо за заявку!");
             setTimeout(function() {

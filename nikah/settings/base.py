@@ -37,22 +37,25 @@ BASE_DIR = path_dirname(path_dirname(
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
+#SECRET_KEY = get_env_variable('SECRET_KEY')
 
-SECRET_KEY = get_env_variable('SECRET_KEY')
+SECRET_KEY = '5e!z(^)kca$ziw%%$=)fni0*&4w8ttepsa5%le70k6-@udomb6'
 
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
+    'crispy_forms',
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +130,7 @@ TIME_ZONE = 'Asia/Yekaterinburg'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -137,9 +140,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = rel_project("collected_static")
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = rel_project('media')
+
 STATICFILES_DIRS = (
     rel_project('static'),
 )
+
+SITE_ID = 1
 
 
 LANGUAGES = (
@@ -150,3 +161,14 @@ LANGUAGES = (
 LOCALE_PATHS = (
     rel_project('locale'),
 )
+
+LOGIN_REDIRECT_URL = '/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 10,
+    'MARGIN_PAGES_DISPLAYED': 2,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+}

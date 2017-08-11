@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n main_category_tags crispy_forms_tags %}
+
+{% block content %}
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="category">{% trans "Categories" %}</p>
+                {% get_category_list category %}
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+                <h2 class="centered">{% trans "Log In" %}</h2>
+                <form action="{% url "main:login" %}" method="post">{% csrf_token %}
+                {{ form|crispy }}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <input class="order_button center-block" type="submit" value="{% trans "Login" %}" />
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

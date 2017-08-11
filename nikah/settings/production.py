@@ -3,3 +3,4 @@ from base import *
 
 
 DEBUG = False
+THUMBNAIL_DEBUG = False

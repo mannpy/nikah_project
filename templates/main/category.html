@@ -1,0 +1,20 @@
+{% load i18n %}
+{% trans "All" as all %}
+<div class="list-group">
+    {% if not act_cat %}
+        <a href="{% url 'main:products' %}" class="list-group-item active">{{ all }}</a>
+    {% else %}
+        <a href="{% url 'main:products' %}" class="list-group-item">{{ all }}</a>
+    {% endif %}
+    {% if cats %}
+        {% for cat in cats %}
+            {% if cat == act_cat %}
+            <a href="{% url 'main:show_category' cat.slug %}" class="list-group-item active">{{ cat.name }}</a>
+            {% else %}
+            <a href="{% url 'main:show_category' cat.slug %}" class="list-group-item">{{ cat.name }}</a>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <strong>{% trans "There are no categories present" %}.</strong>
+    {% endif %}
+</div>

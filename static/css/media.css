@@ -24,6 +24,17 @@
         display: block;
     }
 
+    .adm_menu ul {
+        display: none;
+        position: absolute;
+        background-color: #546E7A;
+        width: 100%;
+        left: 0;
+        margin: 23px auto;
+        padding: 10px;
+        z-index: 10;
+    }
+
     .sell_right .order_button {
        margin: 15px auto;
        float: none;
@@ -43,26 +54,36 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-    .adm_menu ul {
-        display: none;
-        position: absolute;
-        background-color: #546E7A;
-        width: 100%;
-        left: 0;
-        margin: 23px auto;
-        padding: 10px;
-        z-index: 10;
-    }
+    
 
     .slider_container {
         margin: 0 -15px;
     }
 
-}
+    .navbar-form {
+      display: none;
+    }
+
+    .navbar-form input {
+      margin-right: auto;
+      display: block;
+      margin-left: auto;
+      width: 70%;
+    }
+
+    .navbar-form .btn {
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
-
+  .navbar-form input {
+      width: 100%;
+    }
+    
 }
 
 /* Custom, iPhone Retina */
@@ -85,15 +106,16 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-    .adm_menu ul {
-        display: inline-block !important;
-    }
 
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
     .main_menu ul {
+        display: inline-block !important;
+    }
+
+    .adm_menu ul {
         display: inline-block !important;
     }
 
