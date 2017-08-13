@@ -4,5 +4,5 @@ colorcheme.txt
 db.sqlite3
 __pycache__
 images
-nikah/settings/email.py
+nikah/settings/secret.py
 media/cache

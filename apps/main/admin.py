@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Item
+from .models import Category, Item, FeedBack
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -20,5 +20,11 @@ class ItemAdmin(admin.ModelAdmin):
     ]
 
 
+class FeedBackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'message', 'time', 'published')
+    list_filter = ['time']
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Item, ItemAdmin)
+admin.site.register(FeedBack, FeedBackAdmin)

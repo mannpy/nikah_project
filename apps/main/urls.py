@@ -15,4 +15,6 @@ urlpatterns = [
         name="product_detail"),
     url(r'^callback/$', views.callback,
         name="callback"),
+    url(r'^feedback/$', views.feedback,
+        name="feedback"),
 ]

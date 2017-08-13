@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from django.core.exceptions import ImproperlyConfigured
+from django.contrib.messages import constants as messages
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -46,16 +47,17 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'apps.main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.main.apps.MainConfig',
+    'apps.pure_pagination',
     'sorl.thumbnail',
     'crispy_forms',
-    'pure_pagination',
+    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -163,6 +165,14 @@ LOCALE_PATHS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 

@@ -5,13 +5,14 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.shortcuts import redirect
+from django.contrib import messages
 #  django.core.urlresolvers import reverse
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
 # django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from pure_pagination.mixins import PaginationMixin
-from .models import Category, Item
-from .forms import OrderForm
+from .models import Category, Item, FeedBack
+from .forms import OrderForm, FeedbackForm
 
 
 class HomeList(PaginationMixin, ListView):
@@ -57,6 +58,29 @@ def product_detail(request, pk):
     item.views += 1
     item.save()
     return render(request, 'main/product_detail.html', {'item': item})
+
+
+def feedback(request):
+    from pure_pagination import Paginator, PageNotAnInteger
+    try:
+        page = request.GET.get('page', 1)
+    except PageNotAnInteger:
+        page = 1
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            fb = form.save(commit=False)
+            fb.published = True
+            fb.save()
+            messages.success(request, 'Thank you for your feedback')
+            return redirect('main:feedback')
+    else:
+        form = FeedbackForm()
+    feedback = FeedBack.objects.filter(published=True).order_by('-time')
+    p = Paginator(feedback, 10, request=request)
+    pages = p.page(page)
+    return render(request, 'main/feedback.html', {
+        'form': form, 'feedback': feedback, 'pages': pages})
 
 
 def callback(request):

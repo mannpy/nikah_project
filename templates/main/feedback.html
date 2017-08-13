@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load main_category_tags i18n crispy_forms_tags%}
+{% block head_title %}{% trans "Feedback"%}{% endblock %}
+
+
+{% block content %}
+{% trans "There a no feedback yet" as no_feedback %}
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-md-push-3">
+                            <div class="col-md-12 well">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                      <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {{ message }}
+                                      </div>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if feedback %}
+                                    {% for fb in feedback %}
+                                        {% if fb.published %}
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <b>{{ fb.name }}</b>
+                                                    <span class="pull-right">{{ fb.time }}</span>
+                                                    <p>{{ fb.message }}</p>
+                                                </div>
+                                            </div>
+                                            {% if not forloop.last %}<hr>{% endif %}
+                                        {% endif %}     
+                                    {% endfor %}
+                                {% else %}
+                                            
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>{{ no_feedback }}</h3>
+                                    </div>
+                                </div>
+
+                                {% endif %}
+                                
+                            </div>
+                                <div class="centered">
+                                {{ pages.render }}
+                                </div>
+                            <div class="col-md-10 col-md-offset-1 thumbnail">
+                                <form method="POST" class="feedback-form">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">{% trans "Leave a feedback" %}</button>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                    <div class="col-md-3 col-md-pull-9">
+                    <p class="category">{% trans "Categories" %}</p>
+                    {% get_category_list category %}
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

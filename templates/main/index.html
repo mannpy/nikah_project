@@ -1,7 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% load main_category_tags %}
-{% load thumbnail %}
+{% load i18n thumbnail main_category_tags %}
 {% block head_title %}{% trans "Nikah Ufa"%}{% endblock %}
 
 {% block content %}
@@ -28,44 +26,7 @@
     <section class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-9 col-md-push-3">
-                    {% if items %}
-                        {% for item in items %}
-                        <div class="col-sm-4">
-                                <div class="thumbnail">
-                                    {% thumbnail item.photo "300x200" crop="center" as im %}
-                                    <a href="{% url 'main:product_detail' item.pk %}"><img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt=""></a>
-                                    {% endthumbnail %}
-                                    <div class="caption">
-                                        <h4 class="pull-right">{{ item.price}} {% trans "rub" %}.</h4>
-                                        <h4><a href="{% url 'main:product_detail' item.pk %}">{{ item.name }}</a></h4>
-                                        <p>{{ item.description|truncatewords:15 }}</p>
-                                    </div>
-                                    <div class="ratings">
-                                        <p class="pull-right">
-                                        {% if item.views %}
-                                            {% with views_count=item.views %}
-                                            {{ views_count.count }}
-                                            {% blocktrans count counter=views_count %}{{ counter }} view{% plural %}{{ counter }} views{% endblocktrans %}</p>
-                                            {% endwith %}
-                                        {% else %}
-                                            <p  class="pull-right">{% trans "No views" %}</p>
-                                        {% endif %}
-                                        <p>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        {% else %}
-                        <strong>{% trans "There are no products in this category." %}</strong>
-                        {% endif %}
- 			    </div>
+                {% include "main/_products.html" %}
                 <div class="col-md-3 col-md-pull-9">
                     <p class="category">{% trans "Categories" %}</p>
                     {% get_category_list %}
@@ -81,4 +42,3 @@
         </div>
     </section>
 {% endblock %}
-

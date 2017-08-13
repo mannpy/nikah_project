@@ -32,7 +32,7 @@ class Item(models.Model):
     name = models.CharField(_('name'), max_length=128)
     description = models.TextField(_('description'))
     price = models.FloatField(_('price'))
-    photo = models.ImageField(_('iamge'), upload_to='main')
+    photo = models.ImageField(_('image'), upload_to='main')
     views = models.PositiveIntegerField(_('views'), default=0)
     pub_date = models.DateTimeField(_('date published'), auto_now_add=True)
 
@@ -43,3 +43,20 @@ class Item(models.Model):
     class Meta:
         verbose_name = _('a good')
         verbose_name_plural = _('goods')
+
+
+class FeedBack(models.Model):
+    name = models.CharField(_('name'), max_length=50)
+    email = models.EmailField(null=True)
+    message = models.TextField(verbose_name=_('Message'))
+    time = models.DateTimeField(auto_now_add=True, verbose_name=_('Time'))
+    published = models.BooleanField(default=False, verbose_name=_('publish'))
+
+    @python_2_unicode_compatible
+    def __str__(self):
+        return "%s: %s" % (self.email, self.name)
+
+    class Meta:
+        ordering = ['-time']
+        verbose_name = _('a feedback')
+        verbose_name_plural = _('feedback')
