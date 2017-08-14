@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
 # django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from pure_pagination.mixins import PaginationMixin
+from ..pure_pagination.mixins import PaginationMixin
 from .models import Category, Item, FeedBack
 from .forms import OrderForm, FeedbackForm
 
@@ -61,7 +61,7 @@ def product_detail(request, pk):
 
 
 def feedback(request):
-    from pure_pagination import Paginator, PageNotAnInteger
+    from ..pure_pagination import Paginator, PageNotAnInteger
     try:
         page = request.GET.get('page', 1)
     except PageNotAnInteger:

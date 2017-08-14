@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from datetime import datetime
-from pure_pagination import paginator as pagination_module
-from pure_pagination import Paginator, InvalidPage, EmptyPage
+from . import paginator as pagination_module
+from .paginator import Paginator, InvalidPage, EmptyPage
 from django.test import TestCase
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible, force_text
