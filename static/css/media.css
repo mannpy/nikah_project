@@ -76,6 +76,7 @@
       margin-right: auto;
       margin-left: auto;
     }
+
   }
 
 /* Extra Small Devices, Phones */
@@ -84,6 +85,12 @@
       width: 100%;
     }
     
+  .g-recaptcha {
+      transform:scale(0.77);
+      -webkit-transform:scale(0.77);
+      transform-origin:0 0;
+      -webkit-transform-origin:0 0;
+    }
 }
 
 /* Custom, iPhone Retina */

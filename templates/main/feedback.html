@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load main_category_tags i18n crispy_forms_tags%}
+{% load main_category_tags i18n crispy_forms_tags %}
 {% block head_title %}{% trans "Feedback"%}{% endblock %}
 
 
@@ -20,18 +20,17 @@
                                       </div>
                                     {% endfor %}
                                 {% endif %}
+                                {% with pages.object_list as feedback %}
                                 {% if feedback %}
                                     {% for fb in feedback %}
-                                        {% if fb.published %}
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <b>{{ fb.name }}</b>
-                                                    <span class="pull-right">{{ fb.time }}</span>
+                                                    <span class="pull-right">{{ fb.time|date:"d N Y D" }}</span>
                                                     <p>{{ fb.message }}</p>
                                                 </div>
                                             </div>
-                                            {% if not forloop.last %}<hr>{% endif %}
-                                        {% endif %}     
+                                            {% if not forloop.last %}<hr>{% endif %}   
                                     {% endfor %}
                                 {% else %}
                                             
@@ -42,7 +41,7 @@
                                 </div>
 
                                 {% endif %}
-                                
+                                {% endwith %}
                             </div>
                                 <div class="centered">
                                 {{ pages.render }}

@@ -45,7 +45,7 @@ class Item(models.Model):
         verbose_name_plural = _('goods')
 
 
-class FeedBack(models.Model):
+class CommentAbstract(models.Model):
     name = models.CharField(_('name'), max_length=50)
     email = models.EmailField(null=True)
     message = models.TextField(verbose_name=_('Message'))
@@ -57,6 +57,33 @@ class FeedBack(models.Model):
         return "%s: %s" % (self.email, self.name)
 
     class Meta:
+        abstract = True
+
+
+class CommentManager(models.Manager):
+    use_for_related_fields = True
+
+    def published(self, **kwargs):
+        return self.filter(published=True, **kwargs)
+
+
+class FeedBack(CommentAbstract):
+
+    objects = CommentManager()
+
+    class Meta:
         ordering = ['-time']
         verbose_name = _('a feedback')
         verbose_name_plural = _('feedback')
+
+
+class Comment(CommentAbstract):
+    item = models.ForeignKey(
+        Item, on_delete=models.CASCADE, related_name="comments")
+
+    objects = CommentManager()
+
+    class Meta:
+        ordering = ['time']
+        verbose_name = _('a comment')
+        verbose_name_plural = _('comments')

@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.flatpages import views
 from .views import home_files
 
 
@@ -28,6 +29,8 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', admin.site.urls),
+    url(r'^contacts/$', views.flatpage,
+        {'url': '/contacts/'}, name='contacts'),
     url(r'^', include('apps.main.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 )

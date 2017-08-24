@@ -205,6 +205,9 @@ body {
 	text-transform: uppercase;
 }
 
+.order_form {
+  padding: 10px;
+}
 
 /* Thubmnail */
 
@@ -374,4 +377,16 @@ button.close {
     top: -2px;
     right: -21px;
     color: inherit;
+}
+
+.navbar-form {
+  display: none;
+}
+
+.comment-form {
+  font-size: 13px;
+}
+
+.feedback-form {
+  font-size: 13px;
 }

@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'apps.main.apps.MainConfig',
     'apps.pure_pagination',
     'sorl.thumbnail',
@@ -182,3 +184,5 @@ PAGINATION_SETTINGS = {
 
     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
 }
+
+NOCAPTCHA = True

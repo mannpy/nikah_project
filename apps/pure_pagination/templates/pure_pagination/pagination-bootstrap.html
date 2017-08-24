@@ -1,6 +1,6 @@
 {% load i18n %}
 
-
+{% if page_obj.has_other_pages %}
 <ul class="pagination pagination-sm">
     {% if page_obj.has_previous %}
         <li class="previous">
@@ -52,4 +52,4 @@
         </li>
     {% endif %}
 </ul>
-
+{% endif %}

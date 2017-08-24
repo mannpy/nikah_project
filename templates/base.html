@@ -15,16 +15,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, iniмtial-scale=1.0" />
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+    {% block css %}
     <link rel="stylesheet" href="{% static 'libs/bootstrap/bootstrap-custom.min.css' %}" />
     <link rel="stylesheet" href="{% static 'libs/font-awesome-4.2.0/css/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'libs/fancybox/jquery.fancybox.css' %}" />
     <link rel="stylesheet" href="{% static 'libs/owl-carousel/owl.carousel.css' %}" />
-    <link rel="stylesheet" href="{% static 'libs/countdown/jquery.countdown.css' %}" />
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'css/media.css' %}" />
-    {% block head_css %}{% endblock %}
-    {% block head_javascript %}{% endblock %}
+    {% endblock css %}
 </head>
 
 <body>
@@ -98,7 +97,7 @@
                         <ul>
                             <li class="active"><a href="{% url 'main:home' %}">{% trans "Home" %}</a></li>
                             <li><a href="{% url "main:products" %}">{% trans "Goods" %}</a></li>
-                            <li><a href="contacts.html">{% trans "Contacts" %}</a></li>
+                            <li><a href="{% url 'contacts' %}">{% trans "Contacts" %}</a></li>
                             <li><a href="{% url 'main:feedback' %}">{% trans "Feedback" %}</a></li>
                         </ul>
                         <div class="top_contact"><i class="fa fa-mobile" aria-hidden="true"></i> +7-927-086-2810</div>
@@ -124,6 +123,7 @@
             <button class="order_button" type="submit">{% trans "Send" %}</button>
         </form>
     </div>
+    {% block javascript %}
     <!--[if lt IE 9]>
 	<script src="{% static 'libs/html5shiv/es5-shim.min.js' %}"></script>
 	<script src="{% static 'libs/html5shiv/html5shiv.min.js' %}"></script>
@@ -132,21 +132,14 @@
 	<![endif]-->
     <script src="{% static 'libs/jquery/jquery-1.12.4.min.js' %}"></script>
     <script src="{% static 'libs/bootstrap/bootstrap-custom.min.js' %}"></script>
-    <script src="{% static 'libs/jquery-mousewheel/jquery.mousewheel.min.js' %}"></script>
     <script src="{% static 'libs/fancybox/jquery.fancybox.pack.js' %}"></script>
-    <script src="{% static 'libs/waypoints/waypoints-1.6.2.min.js' %}"></script>
-    <script src="{% static 'libs/scrollto/jquery.scrollTo.min.js' %}"></script>
     <script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'libs/countdown/jquery.plugin.js' %}"></script>
-    <script src="{% static 'libs/countdown/jquery.countdown.min.js' %}"></script>
-    <script src="{% static 'libs/countdown/jquery.countdown-ru.js' %}"></script>
-    <script src="{% static 'libs/landing-nav/navigation.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
+    {% endblock javascript %}
     <!-- Yandex.Metrika counter -->
     <!-- /Yandex.Metrika counter -->
     <!-- Google Analytics counter -->
     <!-- /Google Analytics counter -->
-    {% block footer_javascript %}{% endblock %}
 </body>
 
 </html>
