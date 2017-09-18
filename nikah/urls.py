@@ -25,7 +25,6 @@ from .views import home_files
 urlpatterns = [
     url(r'^(?P<filename>(robots.txt)|(humans.txt))$',
         home_files, name='home_files'),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += i18n_patterns(
