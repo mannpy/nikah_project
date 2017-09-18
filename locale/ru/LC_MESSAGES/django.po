@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 21:13+0500\n"
+"POT-Creation-Date: 2017-08-26 21:38+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,95 +20,188 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: nikah/settings/base.py:155
+#: apps/main/models.py:11 apps/main/models.py:32 apps/main/models.py:49
+msgid "name"
+msgstr "Наименование"
+
+#: apps/main/models.py:23 apps/main/models.py:31
+msgid "category"
+msgstr "категория"
+
+#: apps/main/models.py:24
+msgid "categories"
+msgstr "категории"
+
+#: apps/main/models.py:33
+msgid "description"
+msgstr "описание"
+
+#: apps/main/models.py:34
+msgid "price"
+msgstr "цена"
+
+#: apps/main/models.py:35
+msgid "image"
+msgstr "изображение"
+
+#: apps/main/models.py:36
+msgid "views"
+msgstr "количество просмотров"
+
+#: apps/main/models.py:37
+msgid "creation date"
+msgstr "дата создания"
+
+#: apps/main/models.py:44
+msgid "a good"
+msgstr "товар"
+
+#: apps/main/models.py:45
+msgid "goods"
+msgstr "товары"
+
+#: apps/main/models.py:51
+msgid "Message"
+msgstr "сообщение"
+
+#: apps/main/models.py:52
+msgid "Time"
+msgstr "Время"
+
+#: apps/main/models.py:53
+msgid "published"
+msgstr "опубликован"
+
+#: apps/main/models.py:76
+msgid "a feedback"
+msgstr "отзыв"
+
+#: apps/main/models.py:77
+msgid "feedback"
+msgstr "отзывы"
+
+#: apps/main/models.py:88
+msgid "a comment"
+msgstr "комментарий"
+
+#: apps/main/models.py:89
+msgid "comments"
+msgstr "комментарии"
+
+#: apps/main/views.py:64
+msgid "Thank you for your comment"
+msgstr "Спасибо, за ваш комментарий"
+
+#: apps/main/views.py:80
+msgid "Thank you for your feedback"
+msgstr "Спасибо, за ваш отзыв"
+
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:7
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:9
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:16
+msgid "previous page"
+msgstr "предыдущая страница"
+
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:25
+msgid "current page"
+msgstr "текущая страница"
+
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:41
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:42
+#: apps/pure_pagination/templates/pure_pagination/pagination-bootstrap.html:49
+msgid "next page"
+msgstr "следующая страница"
+
+#: apps/pure_pagination/templates/pure_pagination/pagination.html:4
+#: apps/pure_pagination/templates/pure_pagination/pagination.html:6
+msgid "previous"
+msgstr "предыдущая"
+
+#: apps/pure_pagination/templates/pure_pagination/pagination.html:20
+#: apps/pure_pagination/templates/pure_pagination/pagination.html:22
+msgid "next"
+msgstr "следующая"
+
+#: nikah/settings/base.py:161
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
-#: nikah/settings/base.py:156
+#: nikah/settings/base.py:162
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
-#: templates/base.html:13
-msgid "Никах Уфa"
-msgstr "Nikah Ufa"
-
-#: templates/base.html:41
-msgid "Login"
-msgstr "Войти"
-
-#: templates/base.html:43
-msgid "Admin"
-msgstr "Админ"
-
-#: templates/base.html:44
-msgid "Add"
-msgstr "Добавить"
-
-#: templates/base.html:45
-msgid "Products"
-msgstr "Товары"
-
-#: templates/base.html:50
-msgid "Callback order"
-msgstr "Обратный звонок"
-
-#: templates/base.html:64
-msgid "Home"
-msgstr "Главная"
-
-#: templates/base.html:65 templates/main/product_detail.html:5
-#: templates/main/products.html:5
-msgid "Goods"
-msgstr "Товары"
-
-#: templates/base.html:66
-msgid "Contacts"
-msgstr "Контакты"
-
-#: templates/base.html:67
-msgid "Feedback"
-msgstr "Отзывы"
-
-#: templates/base.html:85
-msgid "Order callback"
-msgstr "Заказать обратный звонок"
-
-#: templates/base.html:87
-msgid "Your name"
-msgstr "Ваше имя"
-
-#: templates/base.html:88
-msgid "Your phone"
-msgstr "Ваш телефон"
-
-#: templates/base.html:89
-msgid "Send"
-msgstr "Отправить"
-
-#: templates/main/category.html:2
-msgid "all"
-msgstr "все"
-
-#: templates/main/category.html:18
-msgid "There are no categories present"
-msgstr "Нет никаких категорий"
-
-#: templates/main/index.html:5
+#: templates/base.html:12 templates/main/index.html:3
 msgid "Nikah Ufa"
 msgstr "Никах Уфа"
 
-#: templates/main/index.html:32 templates/main/product_detail.html:14
-#: templates/main/products.html:13
+#: templates/base.html:40
+msgid "Logout"
+msgstr "Выйти"
+
+#: templates/base.html:41
+msgid "Admin"
+msgstr "Админ"
+
+#: templates/base.html:43 templates/base.html:77 templates/main/login.html:17
+msgid "Login"
+msgstr "Войти"
+
+#: templates/base.html:72
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/base.html:75
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/base.html:84
+msgid "Callback order"
+msgstr "Обратный звонок"
+
+#: templates/base.html:98
+msgid "Home"
+msgstr "Главная"
+
+#: templates/base.html:99 templates/main/product_detail.html:3
+#: templates/main/products.html:3
+msgid "Goods"
+msgstr "Товары"
+
+#: templates/base.html:100
+msgid "Contacts"
+msgstr "Контакты"
+
+#: templates/base.html:101 templates/main/feedback.html:3
+msgid "Feedback"
+msgstr "Отзывы"
+
+#: templates/base.html:119
+msgid "Order callback"
+msgstr "Заказать обратный звонок"
+
+#: templates/base.html:121
+msgid "Your name"
+msgstr "Ваше имя"
+
+#: templates/base.html:122
+msgid "Your phone"
+msgstr "Ваш телефон"
+
+#: templates/base.html:123
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/flatpages/default.html:14 templates/main/feedback.html:60
+#: templates/main/index.html:31 templates/main/login.html:9
+#: templates/main/product_detail.html:94 templates/main/products.html:11
 msgid "Categories"
 msgstr "Категории"
 
-#: templates/main/index.html:44 templates/main/product_detail.html:37
-#: templates/main/products.html:25
+#: templates/main/_products.html:12 templates/main/product_detail.html:31
 msgid "rub"
 msgstr "руб"
 
-#: templates/main/index.html:53 templates/main/product_detail.html:45
-#: templates/main/products.html:34
+#: templates/main/_products.html:19 templates/main/product_detail.html:39
 #, python-format
 msgid "%(counter)s view"
 msgid_plural "%(counter)s views"
@@ -117,24 +210,50 @@ msgstr[1] "%(counter)s просмотра"
 msgstr[2] "%(counter)s просмотров"
 msgstr[3] ""
 
-#: templates/main/index.html:56 templates/main/product_detail.html:48
-#: templates/main/products.html:37
+#: templates/main/_products.html:21 templates/main/product_detail.html:42
 msgid "No views"
 msgstr "Нет просмотров"
 
-#: templates/main/index.html:70 templates/main/products.html:51
+#: templates/main/_products.html:28
 msgid "There are no products in this category."
 msgstr "В этой категории нет товаров"
 
-#: templates/main/product_detail.html:7
+#: templates/main/category.html:2
+msgid "All"
+msgstr "Все"
+
+#: templates/main/category.html:18
+msgid "There are no categories present"
+msgstr "В настоящее время нет категорий"
+
+#: templates/main/feedback.html:7
+msgid "There a no feedback yet"
+msgstr "Отзывов пока что нет"
+
+#: templates/main/feedback.html:54
+msgid "Leave a feedback"
+msgstr "Оставить отзыв"
+
+#: templates/main/login.html:13
+msgid "Log In"
+msgstr "Вход"
+
+#: templates/main/product_detail.html:5
 msgid "No image"
 msgstr "Нет изображения"
 
-#: templates/main/product_detail.html:64
-msgid "Leave a Comment"
+#: templates/main/product_detail.html:73
+msgid "There a no comments yet"
+msgstr "Комментариев пока что нет"
+
+#: templates/main/product_detail.html:85
+msgid "Leave a comment"
 msgstr "Оставить комментарий"
 
-#~ msgid "view"
-#~ msgid_plural "views"
-#~ msgstr[0] "просмотр"
-#~ msgstr[1] "просмотра"
+#: templates/nikah/index.html:3
+msgid "Никах Уфа"
+msgstr "Nikah Ufa"
+
+#: templates/nikah/index.html:28
+msgid "Категории"
+msgstr "Categories"

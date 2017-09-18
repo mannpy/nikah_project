@@ -34,7 +34,7 @@ class Item(models.Model):
     price = models.FloatField(_('price'))
     photo = models.ImageField(_('image'), upload_to='main')
     views = models.PositiveIntegerField(_('views'), default=0)
-    pub_date = models.DateTimeField(_('date published'), auto_now_add=True)
+    creation_date = models.DateTimeField(_('creation date'), auto_now_add=True)
 
     @python_2_unicode_compatible
     def __str__(self):
@@ -45,12 +45,21 @@ class Item(models.Model):
         verbose_name_plural = _('goods')
 
 
+class CommentManager(models.Manager):
+    use_for_related_fields = True
+
+    def published(self, **kwargs):
+        return self.filter(published=True, **kwargs)
+
+
 class CommentAbstract(models.Model):
     name = models.CharField(_('name'), max_length=50)
     email = models.EmailField(null=True)
     message = models.TextField(verbose_name=_('Message'))
     time = models.DateTimeField(auto_now_add=True, verbose_name=_('Time'))
-    published = models.BooleanField(default=False, verbose_name=_('publish'))
+    published = models.BooleanField(default=False, verbose_name=_('published'))
+
+    objects = CommentManager()
 
     @python_2_unicode_compatible
     def __str__(self):
@@ -60,16 +69,7 @@ class CommentAbstract(models.Model):
         abstract = True
 
 
-class CommentManager(models.Manager):
-    use_for_related_fields = True
-
-    def published(self, **kwargs):
-        return self.filter(published=True, **kwargs)
-
-
 class FeedBack(CommentAbstract):
-
-    objects = CommentManager()
 
     class Meta:
         ordering = ['-time']
@@ -80,8 +80,6 @@ class FeedBack(CommentAbstract):
 class Comment(CommentAbstract):
     item = models.ForeignKey(
         Item, on_delete=models.CASCADE, related_name="comments")
-
-    objects = CommentManager()
 
     class Meta:
         ordering = ['time']

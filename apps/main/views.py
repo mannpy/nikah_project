@@ -23,7 +23,7 @@ class ProductsMixin(object):
 
 
 class HomeList(ProductsMixin, PaginationMixin, ListView):
-    queryset = Item.objects.order_by('-pub_date')
+    queryset = Item.objects.order_by('-creation_date')
     template_name = "main/index.html"
 
     def get_context_data(self, **kwargs):
@@ -33,7 +33,7 @@ class HomeList(ProductsMixin, PaginationMixin, ListView):
 
 
 class ProductList(ProductsMixin, PaginationMixin, ListView):
-    queryset = Item.objects.order_by('-pub_date')
+    queryset = Item.objects.order_by('-creation_date')
 
 
 class CategoryList(ProductsMixin, PaginationMixin, ListView):
@@ -42,7 +42,7 @@ class CategoryList(ProductsMixin, PaginationMixin, ListView):
         self.category = get_object_or_404(
             Category, slug=self.kwargs['category_name_slug'])
         return Item.objects.filter(
-            category=self.category).order_by('-pub_date')
+            category=self.category).order_by('-creation_date')
 
     def get_context_data(self, **kwargs):
         context = super(CategoryList, self).get_context_data(**kwargs)

@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'apps.pure_pagination',
     'sorl.thumbnail',
     'crispy_forms',
-    'captcha'
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'apps.main.middleware.MinifyHTMLMiddleware'
 ]
 
 ROOT_URLCONF = 'nikah.urls'
@@ -186,3 +187,5 @@ PAGINATION_SETTINGS = {
 }
 
 NOCAPTCHA = True
+
+COMPRESS_HTML = True

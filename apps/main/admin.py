@@ -8,9 +8,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ItemAdmin(admin.ModelAdmin):
-    list_filter = ['pub_date']
+    list_filter = ['creation_date']
     search_fields = ['name']
-    list_display = ('name', 'category', 'price', 'views', 'pub_date')
+    list_display = ('name', 'category', 'price', 'views', 'creation_date')
     fieldsets = [
         (None,
             {'fields': ['category']}),
